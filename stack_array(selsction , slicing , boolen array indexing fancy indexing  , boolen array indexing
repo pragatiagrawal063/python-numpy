@@ -1,0 +1,74 @@
+
+# Stack array
+import numpy as np
+a = np.array([0, 1])
+b = np.array([2, 3])
+print(a,b)  # Normally we have define the array and get the print of it
+# Horizontal stacking
+np.hstack([a,b])       # We can say this function concetinate horizentally
+# vertical stacking
+np.vstack([a, b])      # It concetinate array vertically
+
+#Default vertical
+np.stack([a, b])
+
+
+#selection
+#Single item
+arr = np.arange(12, dtype=int).reshape((2, 6))  # It'll create a 2D array
+print(arr)
+print(arr[0])                                   # It'll print the first row
+print(arr[0,0])                                 # It'll print the first element of 1 row and 1 column that is 0
+print(arr[0, 3])                                # It'll print the frist row's fourth column elemnet
+print(arr[0][3])                                # Similar sytax of the above one
+
+
+# Slicing
+print(arr)
+print(arr[0, :])
+print(arr[:, 0])
+print(arr[:, : 2])
+print(arr[:, 2 :])
+arr2 = (arr[:, 1:4])
+print(arr2)
+
+#slicing return a view modifications (not a copy)
+print(arr2[0,0])
+print(arr2)
+print(arr)
+# Reversing the arrat of 2D
+print(arr[::, ::-1])
+
+# Fancy indexing return a copy not a view
+print('\n')
+print(arr)
+arr2 = arr[:, [1, 2, 3]]
+print(arr2)
+arr2[0,0]= 50
+print(arr2)
+print(arr)
+
+#Boolen array indexing
+print('\n')
+print(arr)
+print(arr2)                     # HAVE SOME PROBLEM HERE
+arr2 = arr[arr > 5]
+print(arr2)
+arr2[0] = 50
+print(arr2)
+print(arr)
+arr[arr>5]= 0
+print(arr)
+
+
+#Boolen array indexing continue
+print('\n')
+names = np.array(['Bob', 'joy', 'will', 'Bobby'])             # Create the initial array
+print("Original array:", names)                             # Print the original array
+names[(names != 'Bob') & (names != 'Bobby')] = 'joy'          # Check the condition and update the array
+print("Modified array:", names)                               # Print the modified array
+unique_names = np.unique(names)
+print("Unique elements:", unique_names)                        # Print the unique elements of the array
+array(['Bob', 'joy'], dtype='<U4')
+print(array)
+
