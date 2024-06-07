@@ -1,0 +1,93 @@
+
+# Array creation (simple)
+import numpy as np
+data1=[1,2,3,4,5]                      # It's defined as list
+array1 = np.array(data1)                # Now list is defined as an array1
+data2 = [range(1,5),range(5,9)]         # Creating another list as given range which is in the form of list of list
+array2 = np.array(data2)                # We convert our list name as data 2 as array of 2D
+print(array2.tolist())                        # Final 2D array is converted as a list
+
+# Some special array
+print(np.zeros(10))                     #it prints 10 zeros in 1D
+print(np.zeros((3,6)))                  #It prints 6 zeros in three rows like it represent 3D array
+print(np.ones(10))                      # It prints 10 ones in single line as 1D array
+
+
+#statistics and machine learning in python
+
+print(np.linspace(0, 1, 5))             #It contains five numbers, evenly spaced starting with 0 and ending point will be 1
+print(np.logspace(0, 3, 4))             # It will start with the power of 10 as it has range 0 to 4 so it will contains only 4 elements with evenly intervals stating with 10^0 and end with 10^3
+print(np.logspace(2, 5, 8))             # It will start with the 10^2 and end with 10^5 with 8 elements with evenly spreade intervals.
+
+
+int_array = np.arange(5)                # It will arrange all the number from zero to 4 which has 5 elements in sequencial order
+float_array = int_array.astype(float)   # It is same as int_array but it will convert interger to float numbers.
+print(int_array, float_array)
+
+print(array1.dtype)                   #Define type of given data
+print(array1.ndim)                    # Define the dimension of array or matrix as 1 D- 1 and for 2D- 2
+print(array1.shape)                   # Tells about number of column
+print(array1.size)                    # Tells about the total number of elememnts
+print(len(array1))                    # Tells about the number of rows
+
+
+#Reshaping
+
+arr = np.arange(10, dtype=float).reshape((2, 5))
+print(arr.shape)                      #printting the defined shape of arr
+print(arr.reshape(5, 2))              # reshape is like transpose of matrix but here we are using array so there will be interchange of row and column.
+
+# Adding a new axis
+
+a= np.array([0, 1])                   #Here we have define a 1 D array
+a_col = a[:, np.newaxis]              # here we have intilize one more axis so the 1D array will be converted to the 2 D array
+print(a_col)
+a_col= a[:, None]                     # Here we have add none axis so a named array will be same as it was.
+print(a_col)
+print(a_col.T)                        # It will give the transpose of the give array
+
+#Faltten : Always return flat copy of the original array
+arr_flt = arr.flatten()               #calling a function faltten
+arr_flt[0] = 50                       # Adding an element to the arr_flt at it's base address
+print(arr_flt)
+print(arr)
+
+#Ravel :  The original copy of the given array whenever possible
+
+arr_flt = arr.ravel()                  #calling a function ravel
+arr_flt[0] = 70                         # Adding an element to the arr_flt at it's base address
+print(arr_flt)
+print(arr)
+
+
+# Reshaping and flattening
+
+x= np.arange(2*3*4)                 # It is creating an 1D array of 24 elements.
+print(x)
+
+
+# Reshape into 2 D first
+x=print(x.reshape(4,6))             #It is creating an 2D array which contain 4 rows and each rows has 6 elements
+
+# Reshape into 3 D
+x= np.arange(2*3*4)
+x=print(x.reshape(4,3,2))         # It creates a 3D array in which it has 4 blocks and 3 rows and 2 column in it
+a = np.arange(2*3*4)
+a = a.reshape(2, 3, 4)            # It creates a 3D array in which there are 2 blocks and 3 rows and 4 column
+print(a)
+print(a[0, :, :])                 # Here we are accessing the frist block of the array with all the rows and the column )
+print(a[:, 0, :])                 # Here we are getting frist row from each (2) bolocks
+print(a[:, :, 0])                 # Here we are getting first column from each block and each row of that first column
+
+
+arr = np.arange(10, dtype=float ).reshape((2,5))
+print(arr)
+arr[1,:]                          # It's telling about second row with all column
+arr[:, 2]
+
+                        # But it is telling about third column with all rows
+# where these two are connecting then the output we shall get is 2,7
+
+
+
+
